@@ -1,6 +1,7 @@
+// Programming Assignment 4 by Cameron Hoffman @ Concordia University Texas
 object Main extends App{
   var a : Char = '0'
-  while(a!='Q') {
+  while(a!='Q') { // Check to quit
     println("What would you like to do? F-Factorial, G-GCD, P-PigLatin ---- Q-Quit")
     val input = scala.io.StdIn.readChar()
     a = input
@@ -25,33 +26,33 @@ object Main extends App{
     else if (input == 'Q' || input == 'q') println("Ending Process")
     else println("Input is invalid, please try again:")
   }
-  def fact(x: Int): Int ={
+  def fact(x: Int): Int ={  // Factorial Method - Returns factorial of given number.
     if (x==0)
       return 1
     else
       return x*fact(x-1)
   }
 
-  def gcd(x: Int,y: Int): Int ={
+  def gcd(x: Int,y: Int): Int ={  // GCD Method - Returns greatest common divisor.
     if(y==0) x
-    else gcd(y, x%y)
+    else gcd(y, x%y)  // GitHub
   }
 
-  def pig(str: String): String ={
+  def pig(str: String): String ={ // Pig Latin Method - Returns string in pig latin.
     var s = str
     if(!(s.startsWith("a") || s.startsWith("e") || s.startsWith("i") || s.startsWith("o") || s.startsWith("u") || s.startsWith("A") || s.startsWith("E") || s.startsWith("I") || s.startsWith("O") || s.startsWith("U"))){
       val last : Int = s.length() - 1
       val first : Int = 0
-      val beginChar : Char = s.charAt(first)
+      val beginChar : Char = s.charAt(first)  // Save First and Last characters
       val endChar : Char = s.charAt(last)
-      var sArray = s.toArray
+      var sArray = s.toArray  // Convert to array and swap characters
       sArray(first) = endChar
       sArray(last) = beginChar
-      s = sArray.mkString("")
-      s = s.toLowerCase
+      s = sArray.mkString("") // Convert back to string
+      s = s.toLowerCase // Fix capitalization
       s = s.capitalize
     }
-    s = s + "ay"
+    s = s + "ay"  // add 'ay' to the end
     s
   }
 }
