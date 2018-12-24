@@ -26,7 +26,7 @@ object Main extends App{
     else if (input == 'Q' || input == 'q') println("Ending Process")
     else println("Input is invalid, please try again:")
   }
-  def fact(x: Int): Int ={  // Factorial Method - Returns factorial of given number.
+  def fact(x: BigInt): BigInt ={  // Factorial Method - Returns factorial of given number.
     if (x==0)
       return 1
     else
